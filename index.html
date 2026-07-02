@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Levin De Vos · Biophysics & Biotechnology Researcher</title>
+  <meta name="description" content="Levin De Vos, master's researcher in Biophysics, Biochemistry & Biotechnology at KU Leuven (Molecular Physiology), working on single-molecule biosensing and 2D materials at imec." />
+  <meta name="author" content="Levin De Vos" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Levin De Vos · Biophysics & Biotechnology Researcher" />
+  <meta property="og:description" content="Master's researcher in Biophysics, Biochemistry & Biotechnology at KU Leuven. Single-molecule biosensing · advanced microscopy · science meets innovation." />
+
+  <!-- Set theme before paint to avoid a flash -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            bg:        'rgb(var(--bg) / <alpha-value>)',
+            surface:   'rgb(var(--surface) / <alpha-value>)',
+            fg:        'rgb(var(--fg) / <alpha-value>)',
+            mutedfg:   'rgb(var(--muted-fg) / <alpha-value>)',
+            primary:   'rgb(var(--primary) / <alpha-value>)',
+            onprimary: 'rgb(var(--on-primary) / <alpha-value>)',
+            accent:    'rgb(var(--accent) / <alpha-value>)',
+            border:    'rgb(var(--border) / <alpha-value>)',
+            muted:     'rgb(var(--muted) / <alpha-value>)',
+          },
+          fontFamily: {
+            heading: ['Lexend', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            body: ['"Source Sans 3"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    :root {
+      --bg: 250 250 250;         /* #FAFAFA */
+      --surface: 255 255 255;    /* #FFFFFF */
+      --fg: 9 9 11;              /* #09090B */
+      --muted-fg: 82 82 91;      /* #52525B */
+      --primary: 24 24 27;       /* #18181B */
+      --on-primary: 255 255 255; /* #FFFFFF */
+      --accent: 37 99 235;       /* #2563EB */
+      --border: 228 228 231;     /* #E4E4E7 */
+      --muted: 241 243 246;      /* #F1F3F6 */
+    }
+    .dark {
+      --bg: 9 9 11;              /* #09090B */
+      --surface: 24 24 27;       /* #18181B */
+      --fg: 244 244 245;         /* #F4F4F5 */
+      --muted-fg: 161 161 170;   /* #A1A1AA */
+      --primary: 244 244 245;    /* #F4F4F5 (inverted button) */
+      --on-primary: 24 24 27;    /* #18181B */
+      --accent: 96 165 250;      /* #60A5FA (brighter blue for dark) */
+      --border: 39 39 42;        /* #27272A */
+      --muted: 39 39 42;         /* #27272A */
+    }
+
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-family: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif; }
+    h1, h2, h3, h4, .font-heading { font-family: 'Lexend', ui-sans-serif, system-ui, sans-serif; }
+
+    ::selection { background: rgb(var(--accent) / 0.22); }
+
+    /* Subtle grid backdrop for the hero */
+    .hero-grid {
+      background-image:
+        linear-gradient(to right, rgb(var(--border) / 0.6) 1px, transparent 1px),
+        linear-gradient(to bottom, rgb(var(--border) / 0.6) 1px, transparent 1px);
+      background-size: 44px 44px;
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 100%);
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 100%);
+    }
+
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease-out, transform .6s ease-out; }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: .08s; }
+    .reveal-delay-2 { transition-delay: .16s; }
+    .reveal-delay-3 { transition-delay: .24s; }
+
+    /* Language proficiency bar fill animates when revealed */
+    .bar > span { width: 0; transition: width 1s cubic-bezier(.22,.61,.36,1); }
+    .bar.in > span { width: var(--lvl); }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto !important; }
+      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+      .bar > span { transition: none !important; width: var(--lvl) !important; }
+    }
+
+    /* Thin custom scrollbar */
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-thumb { background: rgb(var(--border)); border-radius: 999px; }
+  </style>
+</head>
+
+<body class="bg-bg text-fg font-body antialiased selection:text-fg">
+
+  <!-- Skip link for keyboard users -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:rounded-lg focus:bg-primary focus:text-onprimary focus:px-4 focus:py-2">Skip to content</a>
+
+  <!-- ================= NAV ================= -->
+  <header class="fixed top-0 inset-x-0 z-40 border-b border-border/70 bg-bg/80 backdrop-blur-md">
+    <nav class="mx-auto max-w-6xl px-5 sm:px-8 h-16 flex items-center justify-between">
+      <a href="#top" class="group inline-flex items-center gap-2.5" aria-label="Levin De Vos, home">
+        <span class="grid place-items-center h-9 w-9 rounded-lg bg-primary text-onprimary font-heading font-semibold text-sm tracking-tight">LDV</span>
+        <span class="font-heading font-semibold tracking-tight hidden sm:block">Levin&nbsp;De&nbsp;Vos</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-1 text-sm">
+        <a href="#about" class="px-3 py-2 rounded-md text-mutedfg hover:text-fg transition-colors">About</a>
+        <a href="#research" class="px-3 py-2 rounded-md text-mutedfg hover:text-fg transition-colors">Research</a>
+        <a href="#experience" class="px-3 py-2 rounded-md text-mutedfg hover:text-fg transition-colors">Experience</a>
+        <a href="#skills" class="px-3 py-2 rounded-md text-mutedfg hover:text-fg transition-colors">Skills</a>
+        <a href="#certifications" class="px-3 py-2 rounded-md text-mutedfg hover:text-fg transition-colors">Certifications</a>
+        <a href="#education" class="px-3 py-2 rounded-md text-mutedfg hover:text-fg transition-colors">Education</a>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="themeToggle" type="button" aria-label="Toggle dark mode"
+          class="grid place-items-center h-9 w-9 rounded-lg border border-border text-mutedfg hover:text-fg hover:border-fg/30 transition-colors cursor-pointer">
+          <svg class="h-4.5 w-4.5 block dark:hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="h-4.5 w-4.5 hidden dark:block" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-1.5 rounded-lg bg-primary text-onprimary text-sm font-medium px-3.5 py-2 hover:opacity-90 transition-opacity">
+          Get in touch
+        </a>
+
+        <button id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false"
+          class="md:hidden grid place-items-center h-9 w-9 rounded-lg border border-border text-fg cursor-pointer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-border bg-bg">
+      <div class="px-5 py-3 flex flex-col text-sm">
+        <a href="#about" class="py-2.5 text-mutedfg hover:text-fg">About</a>
+        <a href="#research" class="py-2.5 text-mutedfg hover:text-fg">Research</a>
+        <a href="#experience" class="py-2.5 text-mutedfg hover:text-fg">Experience</a>
+        <a href="#skills" class="py-2.5 text-mutedfg hover:text-fg">Skills</a>
+        <a href="#certifications" class="py-2.5 text-mutedfg hover:text-fg">Certifications</a>
+        <a href="#education" class="py-2.5 text-mutedfg hover:text-fg">Education</a>
+        <a href="#contact" class="py-2.5 text-accent font-medium">Get in touch</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <span id="top"></span>
+
+    <!-- ================= HERO ================= -->
+    <section class="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24">
+      <div class="hero-grid absolute inset-0 -z-10" aria-hidden="true"></div>
+      <div class="absolute -z-10 top-10 right-0 h-80 w-80 rounded-full bg-accent/10 blur-3xl" aria-hidden="true"></div>
+
+      <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <div class="grid lg:grid-cols-[1.5fr_1fr] gap-12 items-center">
+          <div class="reveal">
+            <h1 class="font-heading font-semibold tracking-tight text-4xl sm:text-5xl lg:text-6xl leading-[1.05]">
+              Molecular science,<br class="hidden sm:block" /> and what it's good for.
+            </h1>
+
+            <p class="mt-6 text-lg text-mutedfg max-w-xl leading-relaxed">
+              I'm <span class="text-fg font-medium">Levin De Vos</span>, a master's researcher in biophysics at KU Leuven, on the Molecular Physiology track until June 2027. Most of my days right now happen at imec, working on <span class="text-fg font-medium">2D materials and single-molecule biosensing</span>. During my bachelor's I added a minor in Business and Innovation, mostly because the science rarely stops being interesting at the lab door.
+            </p>
+
+            <div class="mt-8 flex flex-wrap items-center gap-3">
+              <a href="#contact" class="inline-flex items-center gap-2 rounded-lg bg-primary text-onprimary font-medium px-5 py-3 hover:opacity-90 transition-opacity">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" fill="none"/><path d="m22 6-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+                Get in touch
+              </a>
+              <a href="#experience" class="inline-flex items-center gap-2 rounded-lg border border-border bg-surface font-medium px-5 py-3 hover:border-fg/30 transition-colors">
+                View my journey
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+              </a>
+            </div>
+
+            <div class="mt-8 flex items-center gap-5 text-mutedfg">
+              <!-- TODO: replace with your real LinkedIn profile URL -->
+              <a href="https://www.linkedin.com/in/levin-de-vos-053259238/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm hover:text-fg transition-colors" aria-label="LinkedIn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8h4.53v14H.24V8zm7.5 0h4.34v1.9h.06c.6-1.14 2.08-2.34 4.28-2.34 4.57 0 5.42 3 5.42 6.9V22h-4.53v-6.14c0-1.46-.03-3.35-2.04-3.35-2.04 0-2.35 1.6-2.35 3.24V22H7.74V8z"/></svg>
+                LinkedIn
+              </a>
+              <a href="mailto:levin.devos@telenet.be" class="inline-flex items-center gap-2 text-sm hover:text-fg transition-colors" aria-label="Email">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                Email
+              </a>
+              <a href="https://github.com/levindevos2003-creator" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm hover:text-fg transition-colors" aria-label="GitHub">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12.26c0 5.22 3.38 9.65 8.07 11.21.59.11.81-.26.81-.57l-.02-2.01c-3.28.72-3.97-1.4-3.97-1.4-.54-1.38-1.31-1.75-1.31-1.75-1.07-.74.08-.72.08-.72 1.18.08 1.8 1.23 1.8 1.23 1.05 1.83 2.76 1.3 3.43.99.11-.77.41-1.3.75-1.6-2.62-.3-5.37-1.34-5.37-5.96 0-1.32.46-2.39 1.22-3.24-.12-.3-.53-1.52.12-3.17 0 0 1-.33 3.3 1.24a11.3 11.3 0 0 1 6 0c2.29-1.57 3.29-1.24 3.29-1.24.65 1.65.24 2.87.12 3.17.76.85 1.22 1.92 1.22 3.24 0 4.63-2.76 5.65-5.39 5.95.42.37.8 1.09.8 2.2l-.01 3.26c0 .31.21.69.82.57 4.68-1.56 8.06-5.99 8.06-11.21C23.5 5.73 18.27.5 12 .5z"/></svg>
+                GitHub
+              </a>
+              <span class="inline-flex items-center gap-2 text-sm">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Putte, Belgium
+              </span>
+            </div>
+          </div>
+
+          <!-- Profile card -->
+          <div class="reveal reveal-delay-2">
+            <div class="relative rounded-2xl border border-border bg-surface p-6 shadow-sm">
+              <div class="flex items-center gap-4">
+                <img src="profile.jpg" alt="Portrait of Levin De Vos" width="96" height="96" class="h-24 w-24 rounded-2xl object-cover ring-1 ring-border shadow-sm" />
+                <div>
+                  <p class="font-heading font-semibold text-lg leading-tight">Levin De Vos</p>
+                  <p class="text-sm text-mutedfg">Biophysics &amp; Biotech Researcher</p>
+                </div>
+              </div>
+
+              <dl class="mt-6 space-y-3.5 text-sm">
+                <div class="flex items-start gap-3">
+                  <dt class="text-mutedfg w-24 shrink-0">Currently</dt>
+                  <dd class="font-medium">Research @ imec</dd>
+                </div>
+                <div class="flex items-start gap-3">
+                  <dt class="text-mutedfg w-24 shrink-0">Studying</dt>
+                  <dd class="font-medium">MSc Biophysics · KU Leuven</dd>
+                </div>
+                <div class="flex items-start gap-3">
+                  <dt class="text-mutedfg w-24 shrink-0">Track</dt>
+                  <dd class="font-medium">Molecular Physiology</dd>
+                </div>
+                <div class="flex items-start gap-3">
+                  <dt class="text-mutedfg w-24 shrink-0">Focus</dt>
+                  <dd class="font-medium">Single-molecule biosensing</dd>
+                </div>
+                <div class="flex items-start gap-3">
+                  <dt class="text-mutedfg w-24 shrink-0">Languages</dt>
+                  <dd class="font-medium">NL · EN · FR · PT</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stat strip -->
+        <div class="reveal reveal-delay-3 mt-16 grid grid-cols-2 sm:grid-cols-4 gap-px overflow-hidden rounded-2xl border border-border bg-border">
+          <div class="bg-surface p-5 text-center">
+            <p class="font-heading font-semibold text-2xl sm:text-3xl">20+</p>
+            <p class="mt-1 text-xs sm:text-sm text-mutedfg">Certifications</p>
+          </div>
+          <div class="bg-surface p-5 text-center">
+            <p class="font-heading font-semibold text-2xl sm:text-3xl">4</p>
+            <p class="mt-1 text-xs sm:text-sm text-mutedfg">Languages</p>
+          </div>
+          <div class="bg-surface p-5 text-center">
+            <p class="font-heading font-semibold text-2xl sm:text-3xl">2+ yrs</p>
+            <p class="mt-1 text-xs sm:text-sm text-mutedfg">Work experience</p>
+          </div>
+          <div class="bg-surface p-5 text-center">
+            <p class="font-heading font-semibold text-2xl sm:text-3xl">MSc</p>
+            <p class="mt-1 text-xs sm:text-sm text-mutedfg">KU Leuven</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="scroll-mt-24 py-16 sm:py-24 border-t border-border">
+      <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <div class="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16">
+          <div class="reveal">
+            <p class="text-sm font-medium tracking-widest text-accent uppercase">About</p>
+            <h2 class="mt-3 font-heading font-semibold text-3xl sm:text-4xl tracking-tight">Scientist by training,<br />tinkerer by habit.</h2>
+          </div>
+          <div class="reveal reveal-delay-1 space-y-5 text-lg text-mutedfg leading-relaxed">
+            <p>
+              Most of what I do sits somewhere between <span class="text-fg font-medium">molecular biology, microscopy, and data</span>. My master's at KU Leuven runs on the Molecular Physiology track through June 2027, and during my bachelor's I completed a minor in Business and Innovation.
+            </p>
+            <p>
+              At <span class="text-fg font-medium">imec</span> I'm working on 2D materials and single-molecule biosensing. In practice that means a lot of TIRF microscopy, some microfluidics, and building small custom parts when the off-the-shelf gear doesn't fit, then trying to make sense of the numbers that come back. My bachelor's thesis had a similar flavour: I put a newer confocal microscope head to head with the lab's trusted workhorse to see where each one really earns its keep.
+            </p>
+            <p>
+              Away from the bench, I've run international student exchanges for <span class="text-fg font-medium">IAESTE</span>, muddled through a few interdisciplinary projects, and picked up a decent amount of AI, programming, and supply-chain thinking along the way. I also <span class="text-fg font-medium">invest in the stock market</span>: mostly ETFs, with some stock picking where I think I see something the index doesn't. To keep myself honest I built my own financial dashboard that tracks performance, so the results are right there whether I like them or not. What I keep coming back to: clear results, methods you can actually trust, and teams that finish what they start.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURED RESEARCH ================= -->
+    <section id="research" class="scroll-mt-24 py-16 sm:py-24 border-t border-border">
+      <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <div class="reveal max-w-2xl">
+          <p class="text-sm font-medium tracking-widest text-accent uppercase">Featured research</p>
+          <h2 class="mt-3 font-heading font-semibold text-3xl sm:text-4xl tracking-tight">Work I'm proud of</h2>
+          <p class="mt-4 text-lg text-mutedfg">Two projects that taught me the most about imaging and measurement, and how quietly both can mislead you.</p>
+        </div>
+
+        <div class="mt-12 grid md:grid-cols-2 gap-6">
+          <!-- imec -->
+          <article class="reveal group relative rounded-2xl border border-border bg-surface p-7 hover:border-accent/50 transition-colors">
+            <div class="flex items-center justify-between">
+              <span class="inline-flex items-center gap-2 rounded-lg bg-muted px-2.5 py-1 text-xs font-medium text-mutedfg">imec · 2026</span>
+              <svg class="h-9 w-9 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 9V3M14 9V3M6.5 21h11a2 2 0 0 0 1.7-3l-4.2-6.5V9h-6v2.5L4.8 18a2 2 0 0 0 1.7 3z"/></svg>
+            </div>
+            <h3 class="mt-5 font-heading font-semibold text-xl tracking-tight">Single-Molecule Biosensing &amp; 2D Materials</h3>
+            <p class="mt-3 text-mutedfg leading-relaxed">
+              Master's research at imec, where I'm trying to detect and follow individual molecules one at a time. It pulls together TIRF microscopy, microfluidics, and a fair bit of hands-on fabrication (laser cutting and 3D printing the parts I need), plus the data analysis to back any of it up.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">TIRF</span>
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">Microfluidics</span>
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">Single molecules</span>
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">Nanofabrication</span>
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">Data analytics</span>
+            </div>
+          </article>
+
+          <!-- Thesis -->
+          <article class="reveal reveal-delay-1 group relative rounded-2xl border border-border bg-surface p-7 hover:border-accent/50 transition-colors">
+            <div class="flex items-center justify-between">
+              <span class="inline-flex items-center gap-2 rounded-lg bg-muted px-2.5 py-1 text-xs font-medium text-mutedfg">Bachelor's thesis · KU Leuven · 2025</span>
+              <svg class="h-9 w-9 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+            </div>
+            <h3 class="mt-5 font-heading font-semibold text-xl tracking-tight">Confocal Imaging: Speed vs. Resolution</h3>
+            <p class="mt-3 text-mutedfg leading-relaxed">
+              I compared the TriScan line-scanning microscope with the Leica TCS SP8, the point-scanning confocal most labs still reach for. Using TetraSpeck beads and fixed HeLa cells, I measured resolution and speed at 488, 561, and 638 nm. The short version: the TriScan ran up to <span class="text-fg font-medium">ten times faster</span>, though you pay for it in Z-axis sharpness. Handy to know before you trust the prettier picture.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">Confocal microscopy</span>
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">PSF analysis</span>
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">Image analysis</span>
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">HeLa cells</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section id="experience" class="scroll-mt-24 py-16 sm:py-24 border-t border-border">
+      <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <div class="reveal max-w-2xl">
+          <p class="text-sm font-medium tracking-widest text-accent uppercase">Experience</p>
+          <h2 class="mt-3 font-heading font-semibold text-3xl sm:text-4xl tracking-tight">A slightly winding path</h2>
+        </div>
+
+        <ol class="mt-12 relative border-l border-border ml-1.5 sm:ml-3">
+          <!-- imec -->
+          <li class="reveal relative pl-8 sm:pl-10 pb-11">
+            <span class="absolute -left-[7px] top-1.5 h-3.5 w-3.5 rounded-full bg-accent ring-4 ring-bg"></span>
+            <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <h3 class="font-heading font-semibold text-lg">Master's Internship Researcher</h3>
+              <span class="text-accent font-medium">imec</span>
+            </div>
+            <p class="mt-1 text-sm text-mutedfg">Feb 2026 – Jun 2026 · Leuven, Belgium · On-site</p>
+            <p class="mt-3 text-mutedfg leading-relaxed max-w-2xl">Working on 2D materials and single-molecule biosensing. Day to day that's TIRF microscopy, some microfluidics, a bit of nanofabrication, and the data analysis that ties the whole thing together.</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">Fluorescence microscopy</span>
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">Molecular biology</span>
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">3D printing</span>
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">Data analytics</span>
+            </div>
+          </li>
+
+          <!-- IAESTE -->
+          <li class="reveal relative pl-8 sm:pl-10 pb-11">
+            <span class="absolute -left-[7px] top-1.5 h-3.5 w-3.5 rounded-full bg-fg/30 ring-4 ring-bg"></span>
+            <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <h3 class="font-heading font-semibold text-lg">Exchange Coordinator</h3>
+              <span class="text-accent font-medium">IAESTE Leuven</span>
+            </div>
+            <p class="mt-1 text-sm text-mutedfg">Aug 2024 – Oct 2025 · Leuven, Belgium · Hybrid <span class="text-mutedfg/70">(member since Sep 2023)</span></p>
+            <p class="mt-3 text-mutedfg leading-relaxed max-w-2xl">Ran international internship exchanges for students in technical fields, which meant coordinating with universities, companies, and IAESTE committees in other countries. I handled applications and placements, kept partner relationships warm, walked students through the whole process, and organised the events that made landing in a strange city feel a bit less daunting.</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">Leadership</span>
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">International relations</span>
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">Communication</span>
+            </div>
+          </li>
+
+          <!-- PIP -->
+          <li class="reveal relative pl-8 sm:pl-10 pb-11">
+            <span class="absolute -left-[7px] top-1.5 h-3.5 w-3.5 rounded-full bg-fg/30 ring-4 ring-bg"></span>
+            <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <h3 class="font-heading font-semibold text-lg">Practical Interdisciplinary Project (PIP)</h3>
+              <span class="text-accent font-medium">KU Leuven</span>
+            </div>
+            <p class="mt-1 text-sm text-mutedfg">Sep 2024 – May 2025 · Leuven, Belgium · On-site</p>
+            <p class="mt-3 text-mutedfg leading-relaxed max-w-2xl">Worked in a mixed team on a genuinely open-ended, cross-disciplinary problem. No single field had the whole answer, so we borrowed from a few and figured out what to do with the parts that didn't line up. Good practice for project management, teamwork, and thinking on your feet.</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">Project management</span>
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">Teamwork</span>
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">Creative strategy</span>
+            </div>
+          </li>
+
+          <!-- Bachelor thesis -->
+          <li class="reveal relative pl-8 sm:pl-10 pb-11">
+            <span class="absolute -left-[7px] top-1.5 h-3.5 w-3.5 rounded-full bg-fg/30 ring-4 ring-bg"></span>
+            <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <h3 class="font-heading font-semibold text-lg">Bachelor's Thesis · Confocal Microscopy</h3>
+              <span class="text-accent font-medium">KU Leuven</span>
+            </div>
+            <p class="mt-1 text-sm text-mutedfg">Oct 2024 – Apr 2025 · Leuven, Belgium · Hybrid</p>
+            <p class="mt-3 text-mutedfg leading-relaxed max-w-2xl">A side-by-side of imaging speed versus resolution on the TriScan and Leica TCS SP8. I also cleaned up the sample-prep protocols and built the figures that made the trade-off obvious. <a href="#research" class="text-accent hover:underline underline-offset-4">More in featured research →</a></p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">Image analysis</span>
+              <span class="rounded-md bg-muted px-2.5 py-1 text-xs text-mutedfg">Data analytics</span>
+            </div>
+          </li>
+
+          <!-- Earlier work -->
+          <li class="reveal relative pl-8 sm:pl-10">
+            <span class="absolute -left-[7px] top-1.5 h-3.5 w-3.5 rounded-full bg-fg/30 ring-4 ring-bg"></span>
+            <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <h3 class="font-heading font-semibold text-lg">Earlier experience</h3>
+              <span class="text-mutedfg text-sm">the jobs that paid the bills, and taught me plenty</span>
+            </div>
+            <p class="mt-1 text-sm text-mutedfg">2019 – 2025 · Putte &amp; Keerbergen, Belgium</p>
+            <div class="mt-3 grid sm:grid-cols-2 gap-3 max-w-2xl">
+              <div class="rounded-xl border border-border bg-surface p-4">
+                <p class="font-medium">Assistant Chef</p>
+                <p class="text-sm text-mutedfg">Delice · Seasonal · Jun 2020 – May 2025</p>
+                <p class="mt-2 text-sm text-mutedfg">Plated starters and desserts through busy seasonal services. A full Saturday-night kitchen teaches you consistency and calm faster than almost anything else.</p>
+              </div>
+              <div class="rounded-xl border border-border bg-surface p-4">
+                <p class="font-medium">Fruit &amp; Vegetable Department</p>
+                <p class="text-sm text-mutedfg">Proxy Lauzan – Delhaize · Jul 2019 – Jul 2020</p>
+                <p class="mt-2 text-sm text-mutedfg">Looked after the fruit and veg section: stock, the displays, and a lot of small talk with the regulars.</p>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section id="skills" class="scroll-mt-24 py-16 sm:py-24 border-t border-border">
+      <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <div class="reveal max-w-2xl">
+          <p class="text-sm font-medium tracking-widest text-accent uppercase">Skills</p>
+          <h2 class="mt-3 font-heading font-semibold text-3xl sm:text-4xl tracking-tight">What I bring to the bench &amp; the table</h2>
+        </div>
+
+        <div class="mt-12 grid md:grid-cols-3 gap-6">
+          <div class="reveal rounded-2xl border border-border bg-surface p-6">
+            <div class="flex items-center gap-3">
+              <span class="grid place-items-center h-10 w-10 rounded-lg bg-muted text-accent"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 9V3M14 9V3M6.5 21h11a2 2 0 0 0 1.7-3l-4.2-6.5V9h-6v2.5L4.8 18a2 2 0 0 0 1.7 3z"/></svg></span>
+              <h3 class="font-heading font-semibold text-lg">Research &amp; Lab</h3>
+            </div>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Single-molecule biosensing</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Fluorescence microscopy</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Confocal microscopy</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">TIRF</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Microfluidics</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Molecular biology</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Image analysis</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">PyMOL</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">3D printing &amp; laser cutting</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">FELASA B</span>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-1 rounded-2xl border border-border bg-surface p-6">
+            <div class="flex items-center gap-3">
+              <span class="grid place-items-center h-10 w-10 rounded-lg bg-muted text-accent"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></span>
+              <h3 class="font-heading font-semibold text-lg">Data &amp; AI</h3>
+            </div>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Python</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Data analytics</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Machine learning</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Deep learning</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Computer vision</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">NLP</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Prompt engineering</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Git &amp; GitHub</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Claude API</span>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-2 rounded-2xl border border-border bg-surface p-6">
+            <div class="flex items-center gap-3">
+              <span class="grid place-items-center h-10 w-10 rounded-lg bg-muted text-accent"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13A4 4 0 0 1 16 11"/></svg></span>
+              <h3 class="font-heading font-semibold text-lg">Business &amp; Leadership</h3>
+            </div>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Project management</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Supply chain &amp; logistics</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Leadership</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Teamwork</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Communication</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Analytical thinking</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Innovation</span>
+              <span class="rounded-lg bg-muted px-3 py-1.5 text-sm text-mutedfg">Stock-market investing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CERTIFICATIONS ================= -->
+    <section id="certifications" class="scroll-mt-24 py-16 sm:py-24 border-t border-border">
+      <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <div class="reveal max-w-2xl">
+          <p class="text-sm font-medium tracking-widest text-accent uppercase">Certifications</p>
+          <h2 class="mt-3 font-heading font-semibold text-3xl sm:text-4xl tracking-tight">Curiosity, with receipts</h2>
+          <p class="mt-4 text-lg text-mutedfg">A snapshot of what I've been picking up lately, mostly around AI, software, science, and business. Not exhaustive, and if I'm honest, some of it stuck better than the rest.</p>
+        </div>
+
+        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Anthropic -->
+          <div class="reveal rounded-2xl border border-border bg-surface p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="font-heading font-semibold">Anthropic</h3>
+              <span class="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-mutedfg">9</span>
+            </div>
+            <ul class="mt-4 space-y-2.5 text-sm text-mutedfg">
+              <li class="flex justify-between gap-3"><span>Building with the Claude API</span><span class="text-mutedfg/70 shrink-0">2026</span></li>
+              <li class="flex justify-between gap-3"><span>Claude Code in Action</span><span class="text-mutedfg/70 shrink-0">2026</span></li>
+              <li class="flex justify-between gap-3"><span>Claude Code 101</span><span class="text-mutedfg/70 shrink-0">2026</span></li>
+              <li class="flex justify-between gap-3"><span>Introduction to Claude Cowork</span><span class="text-mutedfg/70 shrink-0">2026</span></li>
+              <li class="flex justify-between gap-3"><span>Introduction to Agent Skills</span><span class="text-mutedfg/70 shrink-0">2026</span></li>
+              <li class="flex justify-between gap-3"><span>AI Fluency: Framework &amp; Foundations</span><span class="text-mutedfg/70 shrink-0">2026</span></li>
+              <li class="text-accent">+ 3 more (Claude 101, AI Fluency for Students &amp; Educators)</li>
+            </ul>
+          </div>
+
+          <!-- Google + IBM -->
+          <div class="reveal reveal-delay-1 rounded-2xl border border-border bg-surface p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="font-heading font-semibold">Google &amp; IBM</h3>
+              <span class="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-mutedfg">3</span>
+            </div>
+            <ul class="mt-4 space-y-2.5 text-sm text-mutedfg">
+              <li class="flex justify-between gap-3"><span>Google AI Essentials</span><span class="text-mutedfg/70 shrink-0">2026</span></li>
+              <li class="flex justify-between gap-3"><span>IBM · AI Fundamentals</span><span class="text-mutedfg/70 shrink-0">2026</span></li>
+              <li class="flex justify-between gap-3"><span>IBM · Cybersecurity Fundamentals</span><span class="text-mutedfg/70 shrink-0">2026</span></li>
+            </ul>
+          </div>
+
+          <!-- Dev + Data -->
+          <div class="reveal reveal-delay-2 rounded-2xl border border-border bg-surface p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="font-heading font-semibold">Software &amp; Data</h3>
+              <span class="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-mutedfg">2</span>
+            </div>
+            <ul class="mt-4 space-y-2.5 text-sm text-mutedfg">
+              <li class="flex justify-between gap-3"><span>GitHub Foundations</span><span class="text-mutedfg/70 shrink-0">2026</span></li>
+              <li class="flex justify-between gap-3"><span>DataCamp · Python (Intro → Intermediate)</span><span class="text-mutedfg/70 shrink-0">2025</span></li>
+            </ul>
+          </div>
+
+          <!-- Supply chain -->
+          <div class="reveal rounded-2xl border border-border bg-surface p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="font-heading font-semibold">Supply Chain (edX)</h3>
+              <span class="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-mutedfg">2</span>
+            </div>
+            <ul class="mt-4 space-y-2.5 text-sm text-mutedfg">
+              <li class="flex justify-between gap-3"><span>System Design for SCM &amp; Logistics</span><span class="text-mutedfg/70 shrink-0">2025</span></li>
+              <li class="flex justify-between gap-3"><span>Master Control in SCM &amp; Logistics</span><span class="text-mutedfg/70 shrink-0">2025</span></li>
+            </ul>
+          </div>
+
+          <!-- Science -->
+          <div class="reveal reveal-delay-1 rounded-2xl border border-border bg-surface p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="font-heading font-semibold">Science</h3>
+              <span class="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-mutedfg">1</span>
+            </div>
+            <ul class="mt-4 space-y-2.5 text-sm text-mutedfg">
+              <li class="flex justify-between gap-3"><span>FELASA B · Laboratory Animal Science</span><span class="text-mutedfg/70 shrink-0">2025</span></li>
+            </ul>
+          </div>
+
+          <!-- CTA card -->
+          <div class="reveal reveal-delay-2 rounded-2xl border border-dashed border-border bg-transparent p-6 flex flex-col justify-center">
+            <p class="font-heading font-semibold">Twenty-odd and counting</p>
+            <p class="mt-2 text-sm text-mutedfg">The full list, credential IDs and all, lives on my LinkedIn.</p>
+            <!-- TODO: replace with your real LinkedIn profile URL -->
+            <a href="https://www.linkedin.com/in/levin-de-vos-053259238/" target="_blank" rel="noopener" class="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline underline-offset-4">
+              View on LinkedIn
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EDUCATION + LANGUAGES ================= -->
+    <section id="education" class="scroll-mt-24 py-16 sm:py-24 border-t border-border">
+      <div class="mx-auto max-w-6xl px-5 sm:px-8 grid lg:grid-cols-[1.5fr_1fr] gap-12 lg:gap-16">
+        <!-- Education -->
+        <div>
+          <div class="reveal">
+            <p class="text-sm font-medium tracking-widest text-accent uppercase">Education</p>
+            <h2 class="mt-3 font-heading font-semibold text-3xl sm:text-4xl tracking-tight">Where I studied</h2>
+          </div>
+          <div class="mt-9 space-y-4">
+            <div class="reveal rounded-2xl border border-border bg-surface p-6">
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 class="font-heading font-semibold text-lg">MSc Biophysics, Biochemistry &amp; Biotechnology</h3>
+                <span class="text-sm text-mutedfg">2024 – 2027</span>
+              </div>
+              <p class="mt-1 text-accent font-medium">KU Leuven</p>
+              <p class="mt-2 text-sm text-mutedfg">Molecular Physiology track · graduating June 2027.</p>
+            </div>
+            <div class="reveal reveal-delay-1 rounded-2xl border border-border bg-surface p-6">
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 class="font-heading font-semibold text-lg">BSc Biochemistry &amp; Biotechnology</h3>
+                <span class="text-sm text-mutedfg">2021 – 2025</span>
+              </div>
+              <p class="mt-1 text-accent font-medium">KU Leuven</p>
+              <p class="mt-2 text-sm text-mutedfg">Including a minor in Business &amp; Innovation.</p>
+            </div>
+            <div class="reveal reveal-delay-1 rounded-2xl border border-border bg-surface p-6">
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 class="font-heading font-semibold text-lg">Supply Chain Management &amp; Logistics</h3>
+                <span class="text-sm text-mutedfg">2024</span>
+              </div>
+              <p class="mt-1 text-accent font-medium">Chalmers University of Technology · via edX</p>
+            </div>
+            <div class="reveal reveal-delay-2 rounded-2xl border border-border bg-surface p-6">
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 class="font-heading font-semibold text-lg">Latin – Mathematics</h3>
+                <span class="text-sm text-mutedfg">2015 – 2021</span>
+              </div>
+              <p class="mt-1 text-accent font-medium">Koninklijk Atheneum Keerbergen</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Languages + Volunteering -->
+        <div>
+          <div class="reveal">
+            <p class="text-sm font-medium tracking-widest text-accent uppercase">Languages</p>
+            <h2 class="mt-3 font-heading font-semibold text-3xl sm:text-4xl tracking-tight">Four languages</h2>
+          </div>
+          <div class="reveal reveal-delay-1 mt-9 rounded-2xl border border-border bg-surface p-6 space-y-5">
+            <div>
+              <div class="flex justify-between text-sm"><span class="font-medium">Dutch</span><span class="text-mutedfg">Native</span></div>
+              <div class="bar mt-2 h-2 w-full rounded-full bg-muted overflow-hidden" style="--lvl:100%"><span class="block h-full rounded-full bg-accent"></span></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm"><span class="font-medium">English</span><span class="text-mutedfg">Professional</span></div>
+              <div class="bar mt-2 h-2 w-full rounded-full bg-muted overflow-hidden" style="--lvl:85%"><span class="block h-full rounded-full bg-accent"></span></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm"><span class="font-medium">French</span><span class="text-mutedfg">Limited working</span></div>
+              <div class="bar mt-2 h-2 w-full rounded-full bg-muted overflow-hidden" style="--lvl:45%"><span class="block h-full rounded-full bg-accent"></span></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm"><span class="font-medium">Portuguese</span><span class="text-mutedfg">Elementary</span></div>
+              <div class="bar mt-2 h-2 w-full rounded-full bg-muted overflow-hidden" style="--lvl:25%"><span class="block h-full rounded-full bg-accent"></span></div>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-2 mt-6 rounded-2xl border border-border bg-surface p-6">
+            <div class="flex items-center gap-3">
+              <span class="grid place-items-center h-10 w-10 rounded-lg bg-muted text-accent"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>
+              <h3 class="font-heading font-semibold">Volunteering</h3>
+            </div>
+            <p class="mt-4 font-medium">Environmental Stewardship</p>
+            <p class="text-sm text-mutedfg">Gemeentebestuur Putte · 2022 – present</p>
+            <p class="mt-2 text-sm text-mutedfg">Litter-picking and cleanups around Putte, keeping the roadsides, waterways, and public spaces a bit tidier than we found them.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="scroll-mt-24 py-20 sm:py-28 border-t border-border">
+      <div class="mx-auto max-w-3xl px-5 sm:px-8 text-center">
+        <div class="reveal">
+          <p class="text-sm font-medium tracking-widest text-accent uppercase">Contact</p>
+          <h2 class="mt-3 font-heading font-semibold text-3xl sm:text-5xl tracking-tight">Drop me<br class="hidden sm:block" /> a line.</h2>
+          <p class="mt-5 text-lg text-mutedfg max-w-xl mx-auto">I'm open to research collaborations and internships, especially the kind where careful work actually gets used for something. Email reaches me fastest, and I usually reply within a day or two.</p>
+        </div>
+
+        <div class="reveal reveal-delay-1 mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a href="mailto:levin.devos@telenet.be" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-primary text-onprimary font-medium px-6 py-3.5 hover:opacity-90 transition-opacity">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            levin.devos@telenet.be
+          </a>
+          <a href="https://www.linkedin.com/in/levin-de-vos-053259238/" target="_blank" rel="noopener" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-surface font-medium px-6 py-3.5 hover:border-fg/30 transition-colors">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8h4.53v14H.24V8zm7.5 0h4.34v1.9h.06c.6-1.14 2.08-2.34 4.28-2.34 4.57 0 5.42 3 5.42 6.9V22h-4.53v-6.14c0-1.46-.03-3.35-2.04-3.35-2.04 0-2.35 1.6-2.35 3.24V22H7.74V8z"/></svg>
+            Connect on LinkedIn
+          </a>
+          <a href="https://github.com/levindevos2003-creator" target="_blank" rel="noopener" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-surface font-medium px-6 py-3.5 hover:border-fg/30 transition-colors">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12.26c0 5.22 3.38 9.65 8.07 11.21.59.11.81-.26.81-.57l-.02-2.01c-3.28.72-3.97-1.4-3.97-1.4-.54-1.38-1.31-1.75-1.31-1.75-1.07-.74.08-.72.08-.72 1.18.08 1.8 1.23 1.8 1.23 1.05 1.83 2.76 1.3 3.43.99.11-.77.41-1.3.75-1.6-2.62-.3-5.37-1.34-5.37-5.96 0-1.32.46-2.39 1.22-3.24-.12-.3-.53-1.52.12-3.17 0 0 1-.33 3.3 1.24a11.3 11.3 0 0 1 6 0c2.29-1.57 3.29-1.24 3.29-1.24.65 1.65.24 2.87.12 3.17.76.85 1.22 1.92 1.22 3.24 0 4.63-2.76 5.65-5.39 5.95.42.37.8 1.09.8 2.2l-.01 3.26c0 .31.21.69.82.57 4.68-1.56 8.06-5.99 8.06-11.21C23.5 5.73 18.27.5 12 .5z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="border-t border-border py-10">
+    <div class="mx-auto max-w-6xl px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-mutedfg">
+      <div class="flex items-center gap-2.5">
+        <span class="grid place-items-center h-7 w-7 rounded-md bg-primary text-onprimary font-heading font-semibold text-xs">LDV</span>
+        <span>© <span id="year"></span> Levin De Vos · Putte, Belgium</span>
+      </div>
+      <div class="flex items-center gap-5">
+        <a href="mailto:levin.devos@telenet.be" class="hover:text-fg transition-colors">Email</a>
+        <a href="https://www.linkedin.com/in/levin-de-vos-053259238/" target="_blank" rel="noopener" class="hover:text-fg transition-colors">LinkedIn</a>
+        <a href="https://github.com/levindevos2003-creator" target="_blank" rel="noopener" class="hover:text-fg transition-colors">GitHub</a>
+        <a href="#top" class="hover:text-fg transition-colors">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle
+    var toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('click', function () {
+      var isDark = document.documentElement.classList.toggle('dark');
+      try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) {}
+    });
+
+    // Mobile menu
+    var menuBtn = document.getElementById('menuBtn');
+    var mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', function () {
+      var open = mobileMenu.classList.toggle('hidden') === false;
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+    mobileMenu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        mobileMenu.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Scroll reveal + animated bars
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal, .bar').forEach(function (el) { io.observe(el); });
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
