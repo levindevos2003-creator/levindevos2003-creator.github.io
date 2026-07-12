@@ -1,0 +1,487 @@
+/* Levin De Vos - Biophysics & Biotechnology
+   Style: Swiss/editorial black-and-white portfolio (Helvetica, grid, rules) */
+
+:root {
+  --zwart: #111111;
+  --gridlijn: #dcdcdc;
+  --gridlijn-fijn: #bdbdbd;
+  --maxw: 1200px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Neue Haas Grotesk Display Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--zwart);
+  background: #ffffff;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+figure { margin: 0; }
+a { color: var(--zwart); }
+
+h1, h2, h3 { margin: 0; font-weight: 700; }
+
+.skiplink {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: #fff;
+  padding: 12px 18px;
+  font-weight: 700;
+  z-index: 300;
+}
+.skiplink:focus { left: 0; }
+
+:focus-visible { outline: 2px solid var(--zwart); outline-offset: 3px; }
+
+/* ---------- Navigation ---------- */
+
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: rgba(255, 255, 255, 0.96);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--zwart);
+  z-index: 100;
+}
+
+.nav-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-naam {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  padding: 15px 0;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 20px 10px;
+  white-space: nowrap;
+}
+
+.nav-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* menu button (mobile only) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--zwart);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 20px 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .nav-toggle { display: flex; align-items: center; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--zwart);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 6px 0 14px;
+    gap: 0;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 13px 24px; font-size: 12px; }
+}
+
+/* ---------- Cover / hero ---------- */
+
+.hero {
+  position: relative;
+  min-height: 100dvh;
+  overflow: hidden;
+  background-image:
+    linear-gradient(to right, var(--gridlijn) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--gridlijn) 1px, transparent 1px);
+  background-size: 20% 16.67%;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: max(14vh, 120px) 24px 0;
+}
+
+.hero h1 {
+  font-size: clamp(58px, 14.5vw, 190px);
+  line-height: 0.94;
+  letter-spacing: -0.015em;
+}
+
+.hero-sub {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 30px 0 0 clamp(48px, 13vw, 210px);
+}
+
+.hero-sub span {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+}
+
+.rule { height: 2px; background: var(--zwart); }
+.hero-sub .rule { flex: 0 1 340px; width: 100%; }
+
+.hero-fijngrid {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 48%;
+  width: min(44vw, 460px);
+  aspect-ratio: 0.95;
+  background-image:
+    linear-gradient(to right, var(--gridlijn-fijn) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--gridlijn-fijn) 1px, transparent 1px);
+  background-size: 14px 14px;
+  border-right: 1px solid var(--gridlijn-fijn);
+  border-bottom: 1px solid var(--gridlijn-fijn);
+}
+
+.hero-fijngrid span {
+  position: absolute;
+  right: -10px;
+  bottom: 26px;
+  background: #fff;
+  padding: 2px 7px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.hero-woord {
+  position: absolute;
+  z-index: 1;
+  right: 24px;
+  bottom: 7vh;
+  font-size: clamp(38px, 6.5vw, 88px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Sections ---------- */
+
+main { display: block; flex: 1 0 auto; }
+
+section, .hoofdstuk { scroll-margin-top: 72px; }
+
+.sectie {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 120px 24px 30px;
+}
+
+.sec-kop {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 48px;
+}
+
+.sec-kop h2 {
+  font-size: clamp(30px, 4.5vw, 46px);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.sec-kop .rule { width: min(320px, 34vw); }
+
+/* ---------- About ---------- */
+
+.bio {
+  display: grid;
+  grid-template-columns: minmax(240px, 330px) 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.figcap {
+  font-size: 12px;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+.bio-tekst {
+  columns: 2;
+  column-gap: 46px;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  font-size: 15.5px;
+}
+
+.bio-tekst p { margin: 0 0 1em; }
+
+/* ---------- Chapter divider ---------- */
+
+.hoofdstuk {
+  padding: 150px 0 0;
+  overflow: hidden;
+}
+
+.hoofdstuk .groot {
+  font-size: clamp(80px, 20vw, 300px);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+  padding-left: 24px;
+  margin: 0;
+}
+
+.hoofdstuk .sub {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-left: clamp(48px, 18vw, 280px);
+  margin-top: 10px;
+}
+
+.hoofdstuk .sub b { font-size: clamp(16px, 2.2vw, 22px); }
+.hoofdstuk .sub .rule { width: min(240px, 28vw); height: 1.5px; }
+
+/* ---------- Research projects ---------- */
+
+.project {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 130px 24px 20px;
+}
+
+.p-vak {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.p-titel {
+  font-size: clamp(42px, 7.5vw, 104px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin: 8px 0 16px;
+}
+
+.p-numlijn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 52px clamp(40px, 17vw, 270px);
+}
+
+.p-numlijn b { font-size: 19px; }
+.p-numlijn .rule { width: min(260px, 30vw); }
+
+.p-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) 1fr;
+  gap: 56px;
+  margin-bottom: 30px;
+}
+
+.p-opdracht {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  margin: 0;
+}
+
+.p-tekst {
+  columns: 2;
+  column-gap: 46px;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  font-size: 15.5px;
+}
+
+.p-tekst p { margin: 0 0 1em; }
+
+/* ---------- CV lists (experience, certifications, education, languages) ---------- */
+
+.cv-blok { margin-bottom: 52px; }
+
+.cv-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.cv-lijst { border-top: 2px solid var(--zwart); }
+
+.cv-rij {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--zwart);
+  align-items: baseline;
+}
+
+.cv-rij .jr {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.cv-rij .wat b { display: block; }
+.cv-rij .wat span { font-size: 14px; }
+.cv-rij .wat a { font-weight: 700; text-underline-offset: 4px; }
+
+/* skills as plain text under a label */
+.vaardig {
+  font-size: 15.5px;
+  max-width: 75ch;
+  margin: 0;
+}
+
+.cv-voetnoot {
+  font-size: 13px;
+  margin: 6px 0 0;
+}
+.cv-voetnoot a { font-weight: 700; text-underline-offset: 4px; }
+
+/* ---------- Footer / contact ---------- */
+
+.footer {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--zwart);
+  background-image:
+    linear-gradient(to right, var(--gridlijn) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--gridlijn) 1px, transparent 1px);
+  background-size: 20% 25%;
+}
+
+.footer-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 110px 24px 60px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: end;
+}
+
+.footer-naam { font-size: clamp(38px, 6vw, 72px); line-height: 1; letter-spacing: -0.015em; font-weight: 700; margin: 0; }
+
+address { font-style: normal; }
+
+.footer-sub {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.footer-sub span { font-size: 12px; letter-spacing: 0.14em; }
+.footer-sub .rule { width: min(240px, 26vw); }
+
+.footer-contact { text-align: right; font-size: 14.5px; line-height: 2; }
+.footer-contact a { text-decoration: none; font-weight: 700; display: inline-block; padding: 3px 0; }
+.footer-contact a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.footer-meta {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px 34px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 12px;
+}
+
+/* ---------- Reveal ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+}
+
+.reveal.zichtbaar { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 980px) {
+  .bio { grid-template-columns: 1fr; gap: 40px; }
+  .bio-foto { max-width: 330px; }
+  .p-grid { grid-template-columns: 1fr; gap: 34px; }
+  .p-opdracht { max-width: 46ch; }
+}
+
+@media (max-width: 820px) {
+  .bio-tekst, .p-tekst { columns: 1; }
+  .footer-inner { grid-template-columns: 1fr; align-items: start; gap: 34px; }
+  .footer-contact { text-align: left; }
+}
+
+@media (max-width: 640px) {
+  .sectie { padding: 90px 20px 24px; }
+  .project { padding: 100px 20px 16px; }
+  .nav-inner { padding: 0 14px; }
+  .cv-rij { grid-template-columns: 1fr; gap: 4px; }
+  .hero-woord { right: 16px; }
+  .hero-sub { margin-left: 24px; }
+  .hero-sub .rule { flex: 0 1 160px; }
+}
